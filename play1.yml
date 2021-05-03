@@ -7,4 +7,4 @@
      shell: echo "/etc/resolv.conf"
      register: PLAY1VAR
 
-   - debug: msg="{{PLAY1VAR.stdout}}"
+   - debug: msg="{{ PLAY1VAR.stdout }}"
