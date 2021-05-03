@@ -3,8 +3,11 @@
   gather_facts: false
 
   tasks:
-  - name: Register a new value
-    shell: echo "/etc/resolv.conf"
-    register: PLAY1VAR
+   - name: Register a new value
+     shell: echo "/etc/resolv.conf"
+     register: PLAY1VAR
 
-  - debug: msg="{{ PLAY1VAR.stdout }}"
+   - name: Set fact for subsequent job templates
+     set_stats:
+      data:
+        downtime_id: "{{ PLAY1VAR.stdout }}"
