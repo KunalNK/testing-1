@@ -1,5 +1,5 @@
 ---
-- hosts: my-vm
+- hosts: localhost
   gather_facts: false
 
   tasks:
@@ -7,7 +7,12 @@
      shell: echo "/etc/resolv.conf"
      register: PLAY1VAR
 
+   - name: Echo the output PLAY1 variable vaule
+     shell: cat "{{PLAY1VAR.stdout}}" | tail -1
+     register: PLAY1_RESULTS
+
    - name: Set fact for subsequent job templates
      set_stats:
       data:
-        downtime_id: "{{ PLAY1VAR.stdout }}"
+        downtime_id: "{{ PLAY1_RESULTS.stdout }}"
+
