@@ -16,3 +16,8 @@
       data:
         downtime_id: "{{ PLAY1_RESULTS.stdout }}"
 
+   - name: Debug my_personal_variable
+     debug:
+       var: PLAY1_RESULTS.stdout
+
+
