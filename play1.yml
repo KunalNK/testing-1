@@ -14,7 +14,7 @@
    - name: Set fact for subsequent job templates
      set_stats:
       data:
-        downtime_id: "{{ PLAY1VAR.stdout }}"
+        downtime_id: "{{ PLAY1_RESULTS.stdout }}"
 
  
 
